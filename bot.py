@@ -1,5 +1,9 @@
 import discord
+from discord.ext import commands
 import os
+intents = discord.Intents.default()
+intents.members = True
+client = commands.Bot(command_prefix="!", intents=intents)
 
 
 def token():
@@ -11,13 +15,14 @@ def token():
 token = token()
 
 
-class MyClient(discord.Client):
-    async def on_ready(self):
-        print('Logged on as {0}!'.format(self.user))
-
-    async def on_message(self, message):
-        print('Message from {0.author}: {0.content}'.format(message))
+@client.event
+async def on_ready():
+    print("Bot.py has started.")
 
 
-client = MyClient()
+for filename in os.listdir("WaterlooBOT/cogs"):
+    if filename.endswith(".py"):
+        client.load_extension(f'cogs.{filename[:-3]}')
+
+
 client.run(token)
