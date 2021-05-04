@@ -14,7 +14,7 @@ class Misc(commands.Cog):
     @commands.command()
     async def ping(self, ctx):
         embed = discord.Embed(
-            title="Your Latency ⏰", description=f'Your ping is {round(self.client.latency * 1000)}ms!', color=0xFF0000)
+            title="Latency Check ⏰", description=f'Your ping is {round(self.client.latency * 1000)}ms!', color=0xFF0000)
         await ctx.send(embed=embed)
 
     @commands.command()
