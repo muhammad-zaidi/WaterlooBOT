@@ -15,9 +15,9 @@ class translation(commands.Cog):
     async def translate(self, ctx, *, message):
         if message == "help":
             await ctx.send(
-                "Type !translation x y [the word/sentence you want to be translated] where x and y are the ISO 639-1 CODES of the languages you want to be translated.")
+                "Type !translation [language 1] [language 2] [the word/sentence you want to be translated] where language 1 and 2 are the ISO 639-1 CODES of the languages you want to be translated.")
             await ctx.send(
-                "x is the language you want to translate from. y is the language you want to translate to")
+                "language 1 is the language you want to translate from. language 2 is the language you want to translate to")
         else:
             init_lang = message[0:2]
             to_lang = message[3:5]
